@@ -90,6 +90,10 @@ class RegisterController extends Controller
             return $this->sendError('Validation Error.', $this->validator($data)->errors());
         }
 
+        if (mb_substr($data['legitimation_id'], 0, 1) != 'P' || mb_substr($data['legitimation_id'], 0, 1) != 'E' ) {
+            return 'Invalid legitimation ID!';
+        };
+
         $user = $this->create($data);
 
         $success = ['first_name' => $user['first_name'], 'last_name' => $user['last_name']];

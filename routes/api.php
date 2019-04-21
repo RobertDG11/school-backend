@@ -18,6 +18,16 @@ use Illuminate\Http\Request;
 //});
 
 Route::post('register', 'Auth\RegisterController@register');
-Route::post('addDetails/{teacher_id}', 'TeacherDetailsController@addDetails');
+Route::post('login', 'Auth\LoginController@authenticate');
+Route::post('logout', 'Auth\LoginController@logout');
+Route::post('teacherDetail/{id}', 'TeacherDetailsController@addDetails');
 Route::get('teacherDetails', 'TeacherDetailsController@index');
 Route::get('teacherDetail/{id}', 'TeacherDetailsController@show');
+Route::post('booking', 'BookingController@create');
+Route::put('booking/{id}', 'BookingController@update');
+Route::get('booking', 'BookingController@index');
+Route::get('booking/{id}', 'BookingController@find');
+Route::post('classroom', 'ClassroomController@create');
+Route::put('classroom/{id}', 'ClassroomController@update');
+Route::get('classroom', 'ClassroomController@index');
+Route::get('classroom/{id}', 'ClassroomController@find');

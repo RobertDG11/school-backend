@@ -19,9 +19,9 @@ class CreateBookingsTable extends Migration
             $table->bigInteger('classroom_id')->nullable(false)->unsigned();
             $table->string('name');
             $table->string('color')->default("#0000FF");
-            $table->string('file');
-            $table->dateTime('start')->nullable(false);
-            $table->dateTime('end')->nullable(false);
+            $table->string('file')->default(NULL);
+            $table->string('start')->nullable(false);
+            $table->string('end')->nullable(false);
             $table->timestamps();
             $table->foreign('booker_id')->references('id')->on('users');
             $table->foreign('classroom_id')->references('id')->on('classrooms');
